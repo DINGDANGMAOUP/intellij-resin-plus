@@ -1,0 +1,20 @@
+<idea-plugin>
+    <name>Resin-Plus</name>
+    <id>com.dingdangmaoup.resin.plus</id>
+
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.ultimate</depends>
+    <depends>com.intellij.javaee</depends>
+    <depends>com.intellij.javaee.app.servers.integration</depends>
+
+    <description>
+        对官方Resin插件适配idea2024.2+版本
+    </description>
+    <vendor>dingdangmaoup</vendor>
+    <category>Deployment</category>
+    <extensions defaultExtensionNs="com.intellij">
+        <configurationType implementation="com.dingdangmaoup.resin.plus.ResinConfigurationType"/>
+        <configurationProducer implementation="com.dingdangmaoup.resin.plus.ResinConfigurationProducer"/>
+        <javaee.app.servers.integration.appServerIntegration implementation="com.dingdangmaoup.resin.plus.ResinManager"/>
+    </extensions>
+</idea-plugin>
