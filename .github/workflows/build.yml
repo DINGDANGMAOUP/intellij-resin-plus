@@ -44,9 +44,11 @@ jobs:
     # generate changelog
     - name: Generate changelog
       run: conventional-changelog -p angular -i CHANGELOG.md -s
+
     - name: Publish Release
       uses: softprops/action-gh-release@v2
       with:
+        tag_name: ${{ github.ref }} 🌈
         body_path: CHANGELOG.md
         files: |
           build/distributions/*.zip
