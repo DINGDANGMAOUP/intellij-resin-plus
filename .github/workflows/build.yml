@@ -35,11 +35,11 @@ jobs:
           build/distributions/*.zip
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Generate Release Notes
-      uses: release-drafter/release-drafter@v6
-      with:
-        version: ${{ steps.read-properties.outputs.version }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - name: Generate Release Notes
+#      uses: release-drafter/release-drafter@v6
+#      with:
+#        version: ${{ steps.read-properties.outputs.version }}
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 

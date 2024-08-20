@@ -2,7 +2,7 @@ import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 
 plugins {
     id("java")
-    id("org.jetbrains.intellij.platform") version "2.0.0"
+    id("org.jetbrains.intellij.platform") version "2.0.1"
 }
 val revision: String by project
 val groupId: String by project
@@ -37,6 +37,7 @@ dependencies {
     }
     testImplementation("junit:junit:4.13.2")
 }
+
 tasks.buildPlugin {
     archiveFileName.set("intellij-resin-plus.zip")
 }
