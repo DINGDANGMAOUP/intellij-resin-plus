@@ -33,19 +33,13 @@ jobs:
       uses: release-drafter/release-drafter@v6
       with:
         version: ${{ steps.read-properties.outputs.version }}
-        publish: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish Release
-      uses: alexellis/upload-assets@0.4.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: softprops/action-gh-release@v2
       with:
-        asset_paths: '["build/distributions/*.zip"]'
-#      uses: softprops/action-gh-release@v2
-#      with:
-#        files: |
-#          build/distributions/*.zip
-#        token: ${{ secrets.GITHUB_TOKEN }}
+        files: |
+          build/distributions/*.zip
+        token: ${{ secrets.GITHUB_TOKEN }}
 
