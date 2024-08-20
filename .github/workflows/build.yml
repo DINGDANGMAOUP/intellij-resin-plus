@@ -28,12 +28,6 @@ jobs:
     - name: Build Plugin
       run: ./gradlew buildPlugin
 
-    - name: Create and Push Tag
-      run: |
-        git tag v${{ steps.read-properties.outputs.version }}
-        git push origin v${{ steps.read-properties.outputs.version }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Generate Release Notes
       uses: release-drafter/release-drafter@v6
@@ -44,9 +38,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish Release
-      uses: softprops/action-gh-release@v2
+      uses: alexellis/upload-assets@0.4.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        files: |
-          build/distributions/*.zip
-        token: ${{ secrets.GITHUB_TOKEN }}
+        asset_paths: '["build/distributions/*.zip"]'
+#      uses: softprops/action-gh-release@v2
+#      with:
+#        files: |
+#          build/distributions/*.zip
+#        token: ${{ secrets.GITHUB_TOKEN }}
 
