@@ -28,6 +28,12 @@ jobs:
     - name: Build Plugin
       run: ./gradlew buildPlugin
 
+    - name: Publish Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          build/distributions/*.zip
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Generate Release Notes
       uses: release-drafter/release-drafter@v6
@@ -36,10 +42,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Publish Release
-      uses: softprops/action-gh-release@v2
-      with:
-        files: |
-          build/distributions/*.zip
-        token: ${{ secrets.GITHUB_TOKEN }}
 
