@@ -48,7 +48,7 @@ jobs:
     - name: Publish Release
       uses: softprops/action-gh-release@v2
       with:
-        name: ${{ github.ref }} 🌈
+        name: ${{ steps.read-properties.outputs.version }} 🌈
         body_path: CHANGELOG.md
         files: |
           build/distributions/*.zip
