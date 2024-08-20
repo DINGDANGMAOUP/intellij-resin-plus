@@ -1,0 +1,17 @@
+name: notes.yml
+on:
+  release:
+    types:
+      - created
+      - published
+
+permissions: write-all
+
+jobs:
+  notes:
+   runs-on: ubuntu-latest
+   steps:
+    - name: Generate Release Notes
+      uses: release-drafter/release-drafter@v6
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

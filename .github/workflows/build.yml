@@ -27,38 +27,14 @@ jobs:
 
     - name: Build Plugin
       run: ./gradlew buildPlugin
-#初始化npm
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
-    # init package.json
-    - name: Init package.json
-      run: npm init -y
-    # install dependencies
-    - name: Install dependencies
-      run: npm install
-      # conventional-changelog-cli
-    - name: Install conventional-changelog-cli
-      run: npm install -g conventional-changelog-cli
-    # generate changelog
-    - name: Generate changelog
-      run: conventional-changelog -p angular -i CHANGELOG.md -s
 
     - name: Publish Release
       uses: softprops/action-gh-release@v2
       with:
-        name: ${{ steps.read-properties.outputs.version }} 🌈
-        body_path: CHANGELOG.md
         files: |
           build/distributions/*.zip
         token: ${{ secrets.GITHUB_TOKEN }}
 
-#    - name: Generate Release Notes
-#      uses: release-drafter/release-drafter@v6
-#      with:
-#        version: ${{ steps.read-properties.outputs.version }}
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
 
