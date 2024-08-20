@@ -8,10 +8,16 @@ changelog:
         - 'breaking'
     - title: 🏕 Features
       labels:
+        - 'feature'
         - 'enhancement'
+        - 'kind/feature'
     - title: '🐛 Bug Fixes'
       labels:
+        - 'fix'
+        - 'bugfix'
         - 'bug'
+        - 'regression'
+        - 'kind/bug'
     - title: '👋 Deprecated'
       labels:
         - 'deprecation'
