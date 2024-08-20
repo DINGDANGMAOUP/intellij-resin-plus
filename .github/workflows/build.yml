@@ -28,6 +28,12 @@ jobs:
     - name: Build Plugin
       run: ./gradlew buildPlugin
 
+    - name: Create and Push Tag
+      run: |
+        git tag v${{ steps.read-properties.outputs.version }}
+        git push origin v${{ steps.read-properties.outputs.version }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Generate Release Notes
       uses: release-drafter/release-drafter@v6
