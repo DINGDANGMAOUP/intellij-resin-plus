@@ -8,6 +8,7 @@ changelog:
         - 'breaking'
     - title: 🏕 Features
       labels:
+        - 'feat'
         - 'feature'
         - 'enhancement'
         - 'kind/feature'

@@ -6,6 +6,7 @@ version-template: $MAJOR.$MINOR.$PATCH
 categories:
   - title: '🚀 Features'
     labels:
+      - 'feat'
       - 'feature'
       - 'enhancement'
       - 'kind/feature'
